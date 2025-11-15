@@ -1,0 +1,91 @@
+body {
+    font-size: 15pt;
+    background-color: #000;
+}
+/* --- Estilos de Layout Geral do Header --- */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    display: flex; /* Habilita o Flexbox */
+    justify-content: space-between; /* Alinha logo à esquerda e menu à direita */
+    align-items: center;
+}
+
+/* --- Estilos da Navegação (Menu de Links) --- */
+#menu ul {
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Coloca os itens do menu lado a lado */
+}
+
+#menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+#menu ul li a:hover {
+    background-color: #555;
+}
+
+/* --- Esconder o Ícone do Hambúrguer no Desktop --- */
+.manu {
+    display: none; /* ESCONDE o ícone por padrão (telas grandes) */
+    cursor: pointer;
+}
+
+.manu img {
+    width: 30px; /* Ajuste o tamanho da imagem do ícone */
+    height: 30px;
+    filter: invert(1); /* Deixa a cor do ícone branca */
+}
+@media (max-width: 768px) {
+    
+    /* 1. MOSTRAR o ícone do hambúrguer no mobile */
+    .manu {
+        display: block; 
+    }
+
+    /* 2. ESCONDER o menu de links no mobile */
+    #menu {
+        /* Esconder o menu de navegação por padrão no mobile */
+        display: none; 
+        
+        /* Posiciona o menu para ocupar toda a largura e descer abaixo do header */
+        position: absolute;
+        top: 60px; /* Distância do topo (ajuste se seu header for maior) */
+        left: 0;
+        width: 100%;
+        background-color: #444;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    /* 3. Reorganizar os links para ficarem em coluna */
+    #menu ul {
+        flex-direction: column; /* Coloca os links um abaixo do outro */
+    }
+    
+    #menu ul li {
+        text-align: center;
+        border-bottom: 1px solid #555; /* Linha divisória entre os links */
+    }
+    
+    #menu ul li:last-child {
+        border-bottom: none;
+    }
+    
+    #menu ul li a {
+        padding: 15px 0;
+    }
+    
+    
+
+    #menu.active {
+        display: block; 
+    }
+}
